@@ -9,7 +9,7 @@ module AresMUSH
       can_manage_notes = Utils.can_manage_notes?(viewer)
       case section
       when 'player'
-        return char == viewer
+        return true
       when 'shared'
         return true if char == viewer
         return can_manage_notes
