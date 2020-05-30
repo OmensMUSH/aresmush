@@ -13,24 +13,6 @@ module AresMUSH
         ClassTargetFinder.with_a_character(self.name, client, enactor) do |model|
           attr = model.fs3_attributes.sort_by(:name, :order=> "ALPHA")
           skills = model.fs3_action_skills.sort_by(:name, :order=> "ALPHA")
-<<<<<<< Updated upstream
-
-          init = attr[2].rating + skills[0].rating
-          dodge = attr[4].rating + 1
-          toughness = attr[0].rating
-          res = attr[1].rating + attr[5].rating
-          ap = res*2
-          vit = attr[0].rating + attr[1].rating
-          stam = vit*3
-          hp = vit+2
-
-          content = ["Initiative:", "#{init}", "(Perception+Alertness)", "Dodge:", "#{dodge}", "(Reflex+1)", "Toughness:", "#{toughness}", "(Brawn+Armor Rating)", "Resolve:", "#{res}", "(Grit+Wits)", "Action Points:", "#{ap}", "(Resolve x2)", "Vitality:", "#{vit}", "(Brawn+Grit)", "Stamina:", "#{stam}", "(Vitality x3)", "Health:", "#{hp}", "(Vitality+2)"]
-
-          template = BorderedTableTemplate.new content, 25, "#{model.name}'s Derived Stats", "", "Base Values (before Advantages)\n"
-          client.emit template.render
-        end
-      end
-=======
           advs = model.fs3_advantages.sort_by(:name, :order=> "ALPHA");
 
           # Initiative calcs -- base value Perception+Alertness
@@ -44,7 +26,7 @@ module AresMUSH
           basedodge = attr[4].rating + 1
 
           # Toughness calcs -- base value Brawn+Armor Rating
-      basetoughness = attr[0].rating
+          basetoughness = attr[0].rating
 
           # Resolve calcs -- base value Grit+Wits
           baseres = attr[1].rating + attr[5].rating
@@ -113,14 +95,21 @@ module AresMUSH
               basehp += adv.rating
             end
 
-          content = ["Initiative:", "#{baseinit}/#{baseinit}", "(Perception+Alertness)", "Dodge:", "#{basedodge}/#{basedodge}", "(Reflex+1)", "Toughness:", "#{basetoughness}/#{basetoughness}", "(Brawn+Armor Rating)", "Resolve:", "#{baseres}/#{baseres}", "(Grit+Wits)", "Vitality:", "#{basevit}/#{basevit}", "(Brawn+Grit)", "Action Points:", "#{baseap}/#{baseap}", "(Resolve x2)", "Stamina:", "#{basestam}/#{basestam}", "(Vitality x3)", "Health:", "#{basehp}/#{basehp}", "(Vitality+2)"]
+          content = ["Initiative:", "#{baseinit}/#{baseinit}", "(Perception+Alertness)",
+                     "Dodge:", "#{basedodge}/#{basedodge}", "(Reflex+1)", 
+                     "Toughness:", "#{basetoughness}/#{basetoughness}", "(Brawn+Armor Rating)", 
+                     "Resolve:", "#{baseres}/#{baseres}", "(Grit+Wits)", 
+                     "Vitality:", "#{basevit}/#{basevit}", "(Brawn+Grit)", 
+                     "Action Points:", "#{baseap}/#{baseap}", "(Resolve x2)", 
+                     "Stamina:", "#{basestam}/#{basestam}", "(Vitality x3)", 
+                     "Health:", "#{basehp}/#{basehp}", "(Vitality+2)"
+                    ]
 
           template = BorderedTableTemplate.new content, 25, "#{model.name}'s Derived Stats", "", "Current/Base Values (before situational Advantages)\n"
           client.emit template.render
         end
       end
-      
->>>>>>> Stashed changes
+
     end
   end
 end
