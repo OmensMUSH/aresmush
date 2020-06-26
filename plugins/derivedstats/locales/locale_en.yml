@@ -1,0 +1,4 @@
+---
+en:
+  derivedstats:
+      stats_title: "Derived Stats for %{name}"
