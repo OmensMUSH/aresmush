@@ -15,10 +15,17 @@ module AresMUSH
       when "dstats"
         #case cmd.switch
         #when "set"
-          #return SetGoalsCmd
+          #return SetDstatCmd
         #else
           return DerivedStatsCmd
         #end
+      when "personality"
+        case cmd.switch
+        when "set"
+          return SetPersCmd
+        else
+          return PersCmd
+        end
       end
       return nil
     end

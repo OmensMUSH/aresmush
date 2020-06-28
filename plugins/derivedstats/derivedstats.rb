@@ -20,7 +20,9 @@ module AresMUSH
           return DstatsViewCmd
         else
           return DstatCmd
-        end
+        end        
+      end
+      nil
     end
 
     def self.get_event_handler(event_name)
@@ -30,6 +32,6 @@ module AresMUSH
     def self.get_web_request_handler(request)
       nil
     end
+
    end
-  end
 end

@@ -105,7 +105,7 @@ module AresMUSH
                      "Health:", "#{basehp}/#{basehp}", "(Vitality+2)"
                     ]
 
-          template = BorderedTableTemplate.new content, 25, "#{model.name}'s Derived Stats", "", "Current/Base Values (before situational Advantages)\n"
+          template = BorderedTableTemplate.new content, 25, "#{model.name}'s Derived Stats", "", "Base Values (before situational Advantages)\n"
           client.emit template.render
         end
       end
