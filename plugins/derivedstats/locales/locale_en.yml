@@ -1,0 +1,5 @@
+---
+en:
+  derivedstats:
+      stats_title: "Derived Stats for %{name}"
+      invalid_dstat_name: "That is not a valid dstat name."

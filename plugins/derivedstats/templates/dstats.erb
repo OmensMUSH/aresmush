@@ -1,0 +1,9 @@
+%lh
+<%= t('derivedstats.stats_title', :name => char.name) %>
+
+<%= line_with_text t('derivedstats.stats_title') -%>
+<% attrs.each do |a| -%>
+<%= a -%>
+<% end %>
+
+%lf

@@ -8,7 +8,7 @@ aliases:
 
 You have a built-in notepad for your character, where you can record whatever notes you like.  There are three sections of notes:
 
-* Player - personal notes visible only to you.
+* Player - notes about your character visible to everyone.
 * Shared - notes shared between you and the admins.
 * Admin - notes about you visible only to admins.
 
