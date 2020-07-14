@@ -10,8 +10,12 @@ module AresMUSH
       end
 
       def handle
-        enactor.update(personality: self.personality)
-        client.emit_success "Personality set!"
+        if Chargen.check_chargen_locked(enactor)
+          client.emit "%xr%% You can't change this after app submission or approval.%xn"
+        else
+          enactor.update(personality: self.personality)
+          client.emit_success "Personality set!"
+        end
       end
     end
   end
